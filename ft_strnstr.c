@@ -6,11 +6,9 @@
 /*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 15:28:07 by cdutel            #+#    #+#             */
-/*   Updated: 2023/10/30 10:24:33 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/10/30 17:50:49 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -21,7 +19,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	j = -1;
 	if (*little == '\0')
 		return ((char *)big);
-	while (*big && ++j < len - 1 && len > 0)
+	while (*big && ++j < len && len > 0)
 	{
 		if (*big == *little)
 		{
@@ -40,3 +38,13 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (0);
 }
+/*
+int main()
+{
+	//char haystack[30] = "aaabcabcd";
+	//char needle[10] = "aabc";
+
+	__builtin_printf("%s\n", strnstr(haystack, "a", -1));
+	__builtin_printf("%s\n", ft_strnstr(haystack, "a", -1));
+	return 0;
+}*/

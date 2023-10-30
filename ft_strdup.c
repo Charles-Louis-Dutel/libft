@@ -6,11 +6,9 @@
 /*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 17:06:53 by cdutel            #+#    #+#             */
-/*   Updated: 2023/10/30 10:22:56 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/10/21 17:06:55 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 char	*ft_strdup(const char *s)
 {

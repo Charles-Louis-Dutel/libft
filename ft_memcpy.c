@@ -6,11 +6,9 @@
 /*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 18:21:12 by cdutel            #+#    #+#             */
-/*   Updated: 2023/10/30 10:20:26 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/10/19 18:21:14 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {

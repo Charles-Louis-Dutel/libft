@@ -6,20 +6,18 @@
 /*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 16:40:52 by cdutel            #+#    #+#             */
-/*   Updated: 2023/10/30 10:20:21 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/10/30 16:03:10 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	const char		*str1;
-	const char		*str2;
+	unsigned const char		*str1;
+	unsigned const char		*str2;
 	unsigned long	i;
 
-	str1 = s1;
-	str2 = s2;
+	str1 = (unsigned const char *)s1;
+	str2 = (unsigned const char *)s2;
 	i = 0;
 	while (i < n)
 	{
@@ -32,14 +30,16 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 /*
 int	main(void)
 {
-	//char *c1 = "s-erre";
-	//char *c2 = "s-erre";
-	//int size = sizeof(char) * 150;
+	char *c1 = "s-erre";
+	char *c2 = "s-erre";
+	int size = sizeof(char) * 150;
 
-	int array1 [] = { 54, 85, 20, 63, 21 };
-	int array2 [] = { 54, 85, 20, 63, 21 };
-	size_t size = sizeof( int ) * 5;
-	__builtin_printf("%d\n", memcmp(array1, array2, size));
-	__builtin_printf("%d\n", ft_memcmp(array1, array2, size));
+	//char s [] = {-128, 0, 127, 0};
+	//char scpy [] = {-128, 0, 127, 0};
+	//char s2[] = {0, 0, 127, 0};
+	//char s3[] = {0, 0, 42, 0};
+	//size_t size = sizeof( int ) * 4;
+	__builtin_printf("%d\n", memcmp(c1, c2, size));
+	__builtin_printf("%d\n", ft_memcmp(c1, c2, size));
 	return(0);
 }*/

@@ -6,11 +6,9 @@
 /*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 17:48:46 by cdutel            #+#    #+#             */
-/*   Updated: 2023/10/30 10:19:03 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/10/30 18:18:47 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
@@ -21,12 +19,12 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	if (!tab)
 		return (NULL);
 	i = 0;
-	while (i < nmemb)
+	while (i < nmemb * size)
 	{
 		tab[i] = 0;
 		i++;
 	}
-	return ((void *)tab);
+	return (tab);
 }
 /*
 int	main(void)

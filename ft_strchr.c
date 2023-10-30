@@ -6,11 +6,9 @@
 /*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 15:21:45 by cdutel            #+#    #+#             */
-/*   Updated: 2023/10/30 10:22:52 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/10/30 16:54:58 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -21,7 +19,7 @@ char	*ft_strchr(const char *s, int c)
 		return ("\0");
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (s[i] == (unsigned char)c)
 		{
 			return ((char *) &s[i]);
 		}
@@ -29,3 +27,12 @@ char	*ft_strchr(const char *s, int c)
 	}
 	return (NULL);
 }
+/*
+int main()
+{
+	char *s = "tripouille";
+
+	__builtin_printf("%s\n", strchr(s, 0));
+	__builtin_printf("%s\n", ft_strchr(s, 0));
+	return 0;
+}*/

@@ -6,24 +6,24 @@
 /*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 14:50:52 by cdutel            #+#    #+#             */
-/*   Updated: 2023/10/30 10:20:16 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/10/30 15:32:46 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	const char		*str;
 	unsigned int	i;
+	unsigned char	a;
 
+	a = c;
 	if (s == NULL)
 		return (NULL);
 	i = 0;
 	str = s;
 	while (i < n)
 	{
-		if (str[i] == c)
+		if (str[i] == a)
 			return ((void *)&str[i]);
 		i++;
 	}
@@ -32,9 +32,16 @@ void	*ft_memchr(const void *s, int c, size_t n)
 /*
 int	main(void)
 {
-	const char *str = "";
-	const char *str2 = "";
-	__builtin_printf("%s\n", (char*)memchr(str, 'r', 5));
-	__builtin_printf("%s\n", (char*)ft_memchr(str2, 'r', 5));
+	//const char *str = "";
+	//const char *str2 = "";
+	char s1[] = {0, 1, 2 ,3 ,4 ,5};
+	char s2[] = {0, 1, 2 ,3 ,4 ,5};
+	void * found = memchr(s1, 2 + 256, 3);
+	__builtin_printf("%d\n", *((char *) found));
+	void * found2 = ft_memchr(s2, 2 + 256 , 3);
+	__builtin_printf("%d\n", *((char *) found2));
+	//__builtin_printf("%s\n", (char *)memchr(s1, 0, 1));
+	//__builtin_printf("%s\n", (char *)ft_memchr(s2, 0, 1));
+
 	return(0);
 }*/

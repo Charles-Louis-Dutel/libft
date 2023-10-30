@@ -6,11 +6,9 @@
 /*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 15:37:06 by cdutel            #+#    #+#             */
-/*   Updated: 2023/10/30 10:18:54 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/10/19 15:37:07 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
