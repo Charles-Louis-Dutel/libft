@@ -6,13 +6,14 @@
 /*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 10:34:12 by cdutel            #+#    #+#             */
-/*   Updated: 2023/10/30 11:34:05 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/10/30 18:42:52 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <stddef.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
