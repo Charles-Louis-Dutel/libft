@@ -6,9 +6,11 @@
 /*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 15:48:48 by cdutel            #+#    #+#             */
-/*   Updated: 2023/10/30 17:03:52 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/10/30 19:01:10 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {

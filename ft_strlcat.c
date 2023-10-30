@@ -6,9 +6,11 @@
 /*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 18:04:37 by cdutel            #+#    #+#             */
-/*   Updated: 2023/10/05 18:04:39 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/10/30 19:00:49 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {

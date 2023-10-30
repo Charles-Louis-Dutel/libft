@@ -6,9 +6,11 @@
 /*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:04:47 by cdutel            #+#    #+#             */
-/*   Updated: 2023/10/19 15:35:53 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/10/30 19:00:28 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {
