@@ -6,7 +6,7 @@
 /*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 17:48:46 by cdutel            #+#    #+#             */
-/*   Updated: 2023/10/30 18:59:41 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/10/31 16:44:26 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	char			*tab;
 	unsigned int	i;
 
+	if (nmemb != 0 && (nmemb * size) / nmemb != size)
+		return (NULL);
 	tab = (char *)malloc(size * nmemb);
 	if (!tab)
 		return (NULL);

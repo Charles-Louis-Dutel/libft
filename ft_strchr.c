@@ -6,7 +6,7 @@
 /*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 15:21:45 by cdutel            #+#    #+#             */
-/*   Updated: 2023/10/30 19:00:38 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/10/31 15:53:57 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ char	*ft_strchr(const char *s, int c)
 	int	i;
 
 	i = 0;
-	if (c == '\0')
-		return ("\0");
 	while (s[i])
 	{
 		if (s[i] == (unsigned char)c)
@@ -27,6 +25,8 @@ char	*ft_strchr(const char *s, int c)
 		}
 		i++;
 	}
+	if (c == '\0')
+		return ((char *) &s[i]);
 	return (NULL);
 }
 /*

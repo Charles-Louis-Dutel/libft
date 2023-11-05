@@ -6,7 +6,7 @@
 /*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 18:24:05 by cdutel            #+#    #+#             */
-/*   Updated: 2023/10/30 10:20:08 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/10/31 17:49:35 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,8 @@ char	*ft_putnbr_in_tab(char *tab, long n, int i)
 	return (tab);
 }
 
-char	*ft_itoa(int n)
+int	ft_size_tab(int n)
 {
-	char	*tab;
 	int		a;
 	int		i;
 
@@ -53,9 +52,37 @@ char	*ft_itoa(int n)
 			i++;
 		}
 	}
-	tab = (char *)malloc(sizeof(char) * (i + 1));
+	return (i);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*tab;
+	int		i;
+
+	i = ft_size_tab(n);
+	if (n < 0)
+		tab = (char *)malloc(sizeof(char) * (i + 2));
+	else
+		tab = (char *)malloc(sizeof(char) * (i + 1));
 	if (!tab)
 		return (NULL);
 	ft_putnbr_in_tab(tab, n, i - 1);
+	if (n < 0)
+		i++;
+	tab[i] = '\0';
 	return (tab);
 }
+/*
+int main()
+{
+	char *tab = ft_itoa(-2);
+	int i = 0;
+	__builtin_printf("%s\n", tab);
+	while (i < 14)
+	{
+		__builtin_printf("%c\n", tab[i]);
+		i++;
+	}
+	return 0;
+}*/

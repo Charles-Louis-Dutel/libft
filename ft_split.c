@@ -6,7 +6,7 @@
 /*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 17:20:52 by cdutel            #+#    #+#             */
-/*   Updated: 2023/10/30 10:22:45 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/10/31 17:07:39 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ char	**ft_split(char const *s, char c)
 	int		nb_mot;
 
 	nb_mot = ft_countword(s, c);
-	dest = (char **)malloc(sizeof(char *) * nb_mot);
+	dest = (char **)malloc(sizeof(char *) * nb_mot + 1);
 	if (!dest)
 		return (NULL);
 	ft_remplir_dest(dest, s, c);
@@ -88,7 +88,7 @@ char	**ft_split(char const *s, char c)
 /*
 int	main(void)
 {
-	char const *s = "           bonjour comment ca va      ";
+	char const *s = "  tripouille  42  ";
 	char **test;
 	int i;
 

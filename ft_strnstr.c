@@ -6,7 +6,7 @@
 /*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 15:28:07 by cdutel            #+#    #+#             */
-/*   Updated: 2023/10/30 19:01:07 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/10/31 18:21:55 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,37 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int					i;
-	unsigned long int	j;
-	int					dif;
+	unsigned long int	i;
+	unsigned long int	index;
 
-	j = -1;
+	index = 0;
 	if (*little == '\0')
 		return ((char *)big);
-	while (*big && ++j < len && len > 0)
+	while (big[index] && index < len)
 	{
-		if (*big == *little)
+		if (big[index] == little[0])
 		{
-			i = 0;
-			dif = 0;
-			while (little[i])
+			i = 1;
+			while (little[i] && little[i] == big[i + index] && (index
+					+ i) < len)
 			{
-				if (little[i] != big[i])
-					dif = 1;
 				i++;
 			}
-			if (dif == 0)
-				return ((char *)big);
+			if (little[i] == '\0')
+				return ((char *)&big[index]);
 		}
-		big++;
+		index++;
 	}
 	return (0);
 }
 /*
-int main()
+int	main(void)
 {
-	//char haystack[30] = "aaabcabcd";
+	char haystack[30] = "aaabcabcd";
 	//char needle[10] = "aabc";
+	//char *empty = (char *)"";
 
-	__builtin_printf("%s\n", strnstr(haystack, "a", -1));
-	__builtin_printf("%s\n", ft_strnstr(haystack, "a", -1));
-	return 0;
+	__builtin_printf("%s\n", strnstr(haystack, "a", 1));
+	__builtin_printf("%s\n", ft_strnstr(haystack, "a", 1));
+	return (0);
 }*/
