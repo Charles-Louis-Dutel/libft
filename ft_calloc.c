@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
+/*   By: cdutel <cdutel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 17:48:46 by cdutel            #+#    #+#             */
-/*   Updated: 2023/10/31 16:44:26 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/11/08 11:45:40 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,14 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	char			*tab;
-	unsigned int	i;
+	char	*tab;
 
 	if (nmemb != 0 && (nmemb * size) / nmemb != size)
 		return (NULL);
 	tab = (char *)malloc(size * nmemb);
 	if (!tab)
 		return (NULL);
-	i = 0;
-	while (i < nmemb * size)
-	{
-		tab[i] = 0;
-		i++;
-	}
+	ft_bzero(tab, size);
 	return (tab);
 }
 /*
