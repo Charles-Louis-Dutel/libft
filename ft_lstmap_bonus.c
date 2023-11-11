@@ -11,32 +11,28 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-/*
-void	*f(void *content)
-{
-	content +=1;
-
-	return (content);
-}*/
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *),
 		void (*del)(void *))
 {
 	t_list	*new_list;
+	t_list	*begin_list;
 
-	new_list = malloc(sizeof(t_list));
-	if (!new_list)
-		del(new_list->content);
-	if (lst)
+	if (!lst || !f || !del)
+		return (NULL);
+	begin_list = NULL;
+	while (lst)
 	{
-		new_list = lst;
-		while (new_list)
+		new_list = ft_lstnew(f(lst->content));
+		if (!new_list)
 		{
-			f(new_list->content);
-			new_list = new_list->next;
+			ft_lstclear(&begin_list, del);
+			return (NULL);
 		}
+		ft_lstadd_back(&begin_list, new_list);
+		lst = lst->next;
 	}
-	return (new_list);
+	return (begin_list);
 }
 /*
 int main(int argc, char **argv)

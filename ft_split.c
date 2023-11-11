@@ -6,13 +6,13 @@
 /*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 17:20:52 by cdutel            #+#    #+#             */
-/*   Updated: 2023/10/31 17:07:39 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/11/11 17:28:14 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_countword(char const *s, char c)
+int	ft_n_mot(char const *s, char c)
 {
 	int	i;
 	int	nb_mot;
@@ -30,74 +30,71 @@ int	ft_countword(char const *s, char c)
 	return (nb_mot);
 }
 
-char	*ft_remplir_tab(char const *s, char *tab, int start, int end)
+char	*remplir_dest(char const *s, int start, int end)
 {
-	int	i;
+	char	*tab;
+	int		i;
 
+	tab = malloc(sizeof(char) * (end - start +1));
+	if (!tab)
+		return (NULL);
 	i = 0;
 	while (start < end)
 	{
 		tab[i] = s[start];
-		start++;
 		i++;
+		start++;
 	}
 	tab[i] = '\0';
 	return (tab);
 }
 
-char	**ft_remplir_dest(char **dest, char const *s, char c)
-{
-	int		i;
-	int		j;
-	int		start;
-	char	*tab;
-
-	i = 0;
-	j = 0;
-	while (s[i])
-	{
-		while (s[i] == c)
-			i++;
-		start = i;
-		while (s[i] != c)
-			i++;
-		tab = (char *)malloc(sizeof(char) * (i - start + 1));
-		if (!tab)
-			return (NULL);
-		dest[j] = ft_remplir_tab(s, tab, start, i);
-		j++;
-		while (s[i] == c)
-			i++;
-	}
-	dest[j] = NULL;
-	return (dest);
-}
-
 char	**ft_split(char const *s, char c)
 {
-	char	**dest;
-	int		nb_mot;
+	char		**dest;
+	int			end;
+	int			start;
+	size_t		i;
+	int			j;
 
-	nb_mot = ft_countword(s, c);
-	dest = (char **)malloc(sizeof(char *) * nb_mot + 1);
+	dest = malloc(sizeof(char *) * (ft_n_mot(s, c) + 1));
 	if (!dest)
 		return (NULL);
-	ft_remplir_dest(dest, s, c);
+	i = 0;
+	j = 0;
+	while (i < ft_strlen(s))
+	{
+		if (s[i] != c && s[i])
+		{
+			start = i;
+			while (s[i] != c && s[i])
+				i++;
+			end = i;
+			dest[j++] = remplir_dest(s, start, end);
+		}
+		i++;
+	}
+	dest[j] = NULL;
 	return (dest);
 }
 /*
 int	main(void)
 {
-	char const *s = "  tripouille  42  ";
+	char const *s ="   bonjour comment ca va ?   ";
 	char **test;
 	int i;
+	int mot;
 
+	mot = ft_n_mot(s, ' ');
+	//__builtin_printf("%d\n", mot);
 	test = ft_split(s, ' ');
 	i = 0;
-	while (i < 5)
+	while (i < mot + 2)
 	{
 		__builtin_printf("%s\n", test[i]);
 		i++;
 	}
+	//__builtin_printf("%s\n", test[0]);
+
 	return (0);
 }*/

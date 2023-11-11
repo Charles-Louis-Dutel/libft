@@ -6,7 +6,7 @@
 /*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 16:40:52 by cdutel            #+#    #+#             */
-/*   Updated: 2023/10/31 14:49:41 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/11/10 17:08:21 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	unsigned const char		*str1;
 	unsigned const char		*str2;
-	unsigned long	i;
+	unsigned long			i;
 
 	str1 = (unsigned const char *)s1;
 	str2 = (unsigned const char *)s2;

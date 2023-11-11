@@ -14,14 +14,14 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	char	*tab;
+	void	*tab;
 
-	if (nmemb != 0 && (nmemb * size) / nmemb != size)
+	if (nmemb >= 2147483647 || size >= 2147483647)
 		return (NULL);
-	tab = (char *)malloc(size * nmemb);
+	tab = (void *)malloc(size * nmemb);
 	if (!tab)
 		return (NULL);
-	ft_bzero(tab, size);
+	ft_bzero(tab, (nmemb * size));
 	return (tab);
 }
 /*
