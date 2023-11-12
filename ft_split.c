@@ -6,13 +6,13 @@
 /*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 17:20:52 by cdutel            #+#    #+#             */
-/*   Updated: 2023/11/11 17:28:14 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/11/12 10:39:58 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_n_mot(char const *s, char c)
+static int	ft_n_mot(char const *s, char c)
 {
 	int	i;
 	int	nb_mot;
@@ -30,7 +30,7 @@ int	ft_n_mot(char const *s, char c)
 	return (nb_mot);
 }
 
-char	*remplir_dest(char const *s, int start, int end)
+static char	*remplir_dest(char const *s, int start, int end)
 {
 	char	*tab;
 	int		i;

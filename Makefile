@@ -17,27 +17,27 @@ BSRCS = \
 	ft_lstlast_bonus.c
 OBJS = ${SRCS:.c=.o}
 BOBJS = ${BSRCS:.c=.o}
+
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
+%.o:%.c
+	${CC} ${CFLAGS} -I includes -c $< -o ${<:.c=.o}
+
+${NAME}: ${OBJS}
+	ar rcs ${NAME} ${OBJS} $?
 
 all: ${NAME} bonus
 
-${NAME}: ${OBJS}
-	ar rcs $@ $?
-
-bonus:${OBJS} ${BOBJS}
-		ar rcs ${NAME} $?
-
-%.o: %.c
-	${CC} ${CFLAGS} -I includes -c $< -o ${<:.c=.o}
+bonus: ${BOBJS}
+		ar rcs ${NAME} ${BOBJS} $?
 
 clean:
 	rm -f ${OBJS} ${BOBJS}
 
-fclean:
+fclean: clean
 	rm -f ${NAME}
 
-re:	fclean all
+re: fclean all
 
 .PHONY: all clean fclean re bonus

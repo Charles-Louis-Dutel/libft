@@ -6,7 +6,7 @@
 /*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 18:21:12 by cdutel            #+#    #+#             */
-/*   Updated: 2023/10/31 14:49:44 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/11/12 10:35:50 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	unsigned long	i;
-	const char		*to_copy;
-	char			*copy;
+	const char		*source;
+	char			*destination;
 
-	to_copy = src;
-	copy = dest;
+	source = (const char *)src;
+	destination = (char *)dest;
 	i = 0;
 	while (i < n)
 	{
-		copy[i] = to_copy[i];
+		destination[i] = source[i];
 		i++;
 	}
 	return (dest);

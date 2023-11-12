@@ -6,13 +6,13 @@
 /*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 18:24:05 by cdutel            #+#    #+#             */
-/*   Updated: 2023/10/31 17:49:35 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/11/12 10:25:43 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_putnbr_in_tab(char *tab, long n, int i)
+static char	*ft_putnbr_in_tab(char *tab, long n, int i)
 {
 	if (n < 0)
 	{
@@ -35,7 +35,7 @@ char	*ft_putnbr_in_tab(char *tab, long n, int i)
 	return (tab);
 }
 
-int	ft_size_tab(int n)
+static int	ft_size_tab(int n)
 {
 	int		a;
 	int		i;

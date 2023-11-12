@@ -14,15 +14,17 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	void	*tab;
+	void	*ptr;
 
-	if (nmemb >= 2147483647 || size >= 2147483647)
+	if (size == 0)
+		return (malloc(0));
+	if (nmemb > 2147483647 / size)
 		return (NULL);
-	tab = (void *)malloc(size * nmemb);
-	if (!tab)
+	ptr = malloc(nmemb * size);
+	if (ptr == NULL)
 		return (NULL);
-	ft_bzero(tab, (nmemb * size));
-	return (tab);
+	ft_bzero(ptr, nmemb * size);
+	return (ptr);
 }
 /*
 int	main(void)

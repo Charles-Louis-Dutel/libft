@@ -6,7 +6,7 @@
 /*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 13:56:59 by cdutel            #+#    #+#             */
-/*   Updated: 2023/10/31 14:49:49 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/11/12 10:38:41 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	unsigned long	i;
-	const char		*to_copy;
-	char			*copy;
+	const char		*source;
+	char			*destination;
 
-	to_copy = src;
-	copy = dest;
-	if (copy > to_copy)
+	source = (const char *)src;
+	destination = (char *)dest;
+	if (destination > source)
 	{
 		while (n > 0)
 		{
-			copy[n - 1] = to_copy[n - 1];
+			destination[n - 1] = source[n - 1];
 			n--;
 		}
 	}
@@ -33,7 +33,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		i = 0;
 		while (i < n)
 		{
-			copy[i] = to_copy[i];
+			destination[i] = source[i];
 			i++;
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:04:47 by cdutel            #+#    #+#             */
-/*   Updated: 2023/10/31 14:49:53 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/11/12 10:39:11 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memset(void *s, int c, size_t n)
 	unsigned long	i;
 
 	i = 0;
-	str = s;
+	str = (char *)s;
 	while (i < n)
 	{
 		str[i] = c;

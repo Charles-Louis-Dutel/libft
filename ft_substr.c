@@ -6,13 +6,13 @@
 /*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 14:39:22 by cdutel            #+#    #+#             */
-/*   Updated: 2023/10/31 15:40:08 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/11/12 14:44:00 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_remplir_str(char const *s, char *str, unsigned int start,
+static char	*ft_remplir_str(char const *s, char *str, unsigned int start,
 		size_t len)
 {
 	unsigned int	i;

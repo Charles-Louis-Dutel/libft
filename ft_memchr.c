@@ -6,7 +6,7 @@
 /*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 14:50:52 by cdutel            #+#    #+#             */
-/*   Updated: 2023/11/10 17:52:53 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/11/12 10:34:01 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	const unsigned char		*str;
+	unsigned const char		*str;
 	unsigned int			i;
 	unsigned char			a;
 
 	a = c;
-	if (s == NULL)
+	if (!s)
 		return (NULL);
 	i = 0;
-	str = s;
+	str = (unsigned const char *)s;
 	while (i < n)
 	{
 		if (str[i] == a)
