@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
+/*   By: cdutel <cdutel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 14:39:22 by cdutel            #+#    #+#             */
-/*   Updated: 2023/11/12 14:44:00 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/11/14 16:20:51 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (start > i)
 	{
 		str = (char *)malloc(sizeof(char) * 1);
+		if (!str)
+			return (NULL);
 		*str = '\0';
 		return (str);
 	}

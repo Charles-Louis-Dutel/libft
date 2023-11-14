@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
+/*   By: cdutel <cdutel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 18:04:37 by cdutel            #+#    #+#             */
-/*   Updated: 2023/11/10 18:17:44 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/11/14 18:44:22 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,11 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	unsigned long	len_dst;
 	unsigned long	len_src;
 
-	len_dst = ft_strlen(dst);
 	len_src = ft_strlen(src);
+	if (dst)
+		len_dst = ft_strlen(dst);
+	else
+		len_dst = 0;
 	i = len_dst;
 	j = 0;
 	if (size > len_dst)
@@ -37,3 +40,12 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 		return (size + len_src);
 	return (len_dst + len_src);
 }
+
+/*int main()
+{
+	char b[0xF] = "nyan !";
+
+	__builtin_printf("%zu\n", ft_strlcat(((void*)0), b ,0));
+	__builtin_printf("%zu\n", strlcat(((void*)0), b ,0));
+	return 0;
+}*/

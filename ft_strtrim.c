@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
+/*   By: cdutel <cdutel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 15:38:18 by cdutel            #+#    #+#             */
-/*   Updated: 2023/10/31 15:55:14 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/11/14 18:03:53 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char					*dest;
 	unsigned long int		i;
 	unsigned long int		start;
-	unsigned long int		end;
 
 	i = 0;
 	while (ft_compare(s1[i], set) == 1)
@@ -55,11 +54,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = ft_strlen(s1);
 	while (ft_compare(s1[i - 1], set) == 1)
 		i--;
-	end = i;
 	if (start != ft_strlen(s1))
 	{
-		dest = (char *)malloc(sizeof(char) * (end - start + 1));
-		ft_remplir_dest(dest, s1, start, end);
+		dest = (char *)malloc(sizeof(char) * (i - start + 1));
+		if (!dest)
+			return (NULL);
+		ft_remplir_dest(dest, s1, start, i);
 	}
 	else
 	{

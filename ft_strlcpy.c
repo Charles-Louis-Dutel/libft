@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
+/*   By: cdutel <cdutel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 17:16:09 by cdutel            #+#    #+#             */
-/*   Updated: 2023/10/31 14:50:06 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/11/14 19:32:34 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	unsigned long int	j;
 
 	i = 0;
-	if (!dst || !src)
-		return (0);
 	if (size > 0)
 	{
 		while (src[i] && i < size - 1)
@@ -34,8 +32,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 		j++;
 	return (j);
 }
-/*
-int main()
+
+/*int main()
 {
 	char src[] = "coucou";
 	char dest1[10];

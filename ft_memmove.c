@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
+/*   By: cdutel <cdutel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 13:56:59 by cdutel            #+#    #+#             */
-/*   Updated: 2023/11/12 10:38:41 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/11/14 16:33:40 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	const char		*source;
 	char			*destination;
 
+	if (!dest && !src)
+		return (NULL);
 	source = (const char *)src;
 	destination = (char *)dest;
 	if (destination > source)
@@ -30,12 +32,9 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	else
 	{
-		i = 0;
-		while (i < n)
-		{
+		i = -1;
+		while (++i < n)
 			destination[i] = source[i];
-			i++;
-		}
 	}
 	return (dest);
 }
