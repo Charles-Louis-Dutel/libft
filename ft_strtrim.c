@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdutel <cdutel@student.42.fr>              +#+  +:+       +#+        */
+/*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 15:38:18 by cdutel            #+#    #+#             */
-/*   Updated: 2023/11/14 18:03:53 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/11/17 09:46:09 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_compare(char c, char const *set)
+static int	ft_compare(char c, char const *set)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int	ft_compare(char c, char const *set)
 	return (0);
 }
 
-char	*ft_remplir_dest(char *dest, char const *s1, int start, int end)
+static char	*ft_remplir_dest(char *dest, char const *s1, int start, int end)
 {
 	int	i;
 
@@ -41,16 +41,25 @@ char	*ft_remplir_dest(char *dest, char const *s1, int start, int end)
 	return (dest);
 }
 
+static int	ft_get_start(char const *s1, char const *set)
+{
+	unsigned long int		i;
+
+	i = 0;
+	while (ft_compare(s1[i], set) == 1)
+		i++;
+	return (i);
+}
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char					*dest;
 	unsigned long int		i;
 	unsigned long int		start;
 
-	i = 0;
-	while (ft_compare(s1[i], set) == 1)
-		i++;
-	start = i;
+	if (!s1)
+		return (NULL);
+	start = ft_get_start(s1, set);
 	i = ft_strlen(s1);
 	while (ft_compare(s1[i - 1], set) == 1)
 		i--;
@@ -64,6 +73,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	else
 	{
 		dest = (char *)malloc(sizeof(char) * 1);
+		if (!dest)
+			return (NULL);
 		dest[0] = '\0';
 	}
 	return (dest);

@@ -6,7 +6,7 @@
 /*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 17:20:52 by cdutel            #+#    #+#             */
-/*   Updated: 2023/11/12 10:39:58 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/11/17 09:17:51 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,12 @@ static char	*remplir_dest(char const *s, int start, int end)
 char	**ft_split(char const *s, char c)
 {
 	char		**dest;
-	int			end;
 	int			start;
 	size_t		i;
 	int			j;
 
+	if (!s)
+		return (NULL);
 	dest = malloc(sizeof(char *) * (ft_n_mot(s, c) + 1));
 	if (!dest)
 		return (NULL);
@@ -69,8 +70,7 @@ char	**ft_split(char const *s, char c)
 			start = i;
 			while (s[i] != c && s[i])
 				i++;
-			end = i;
-			dest[j++] = remplir_dest(s, start, end);
+			dest[j++] = remplir_dest(s, start, i);
 		}
 		i++;
 	}

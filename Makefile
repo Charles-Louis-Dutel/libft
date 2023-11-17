@@ -15,25 +15,26 @@ BSRCS = \
 	ft_lstclear_bonus.c ft_lstdelone_bonus.c ft_lstmap_bonus.c \
 	ft_lstnew_bonus.c ft_lstsize_bonus.c ft_lstiter_bonus.c \
 	ft_lstlast_bonus.c
+SRC_ALL = ${SRCS} ${BSRCS}
 OBJS = ${SRCS:.c=.o}
-BOBJS = ${BSRCS:.c=.o}
+OBJS_ALL = ${SRC_ALL:.c=.o}
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 %.o:%.c
-	${CC} ${CFLAGS} -I includes -c $< -o ${<:.c=.o}
+	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}: ${OBJS}
 	ar rcs ${NAME} ${OBJS} $?
 
 all: ${NAME} bonus
 
-bonus: ${BOBJS}
-		ar rcs ${NAME} ${BOBJS} $?
+bonus: ${OBJS_ALL}
+		ar rcs ${NAME} ${OBJS_ALL} $?
 
 clean:
-	rm -f ${OBJS} ${BOBJS}
+	rm -f ${OBJS_ALL}
 
 fclean: clean
 	rm -f ${NAME}

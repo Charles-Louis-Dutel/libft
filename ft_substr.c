@@ -36,6 +36,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char			*str;
 	unsigned int	i;
 
+	if (!s)
+		return (NULL);
 	i = ft_strlen(s);
 	if (start > i)
 	{
