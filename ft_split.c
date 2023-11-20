@@ -3,14 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdutel <cdutel@42student.fr>               +#+  +:+       +#+        */
+/*   By: cdutel <cdutel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 17:20:52 by cdutel            #+#    #+#             */
-/*   Updated: 2023/11/17 09:17:51 by cdutel           ###   ########.fr       */
+/*   Updated: 2023/11/20 14:55:46 by cdutel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static char	*ft_error(char **dest)
+{
+	size_t	i;
+
+	i = 0;
+	while (dest[i])
+	{
+		free(dest[i]);
+		i++;
+	}
+	free(dest);
+	return (NULL);
+}
 
 static int	ft_n_mot(char const *s, char c)
 {
@@ -30,14 +44,14 @@ static int	ft_n_mot(char const *s, char c)
 	return (nb_mot);
 }
 
-static char	*remplir_dest(char const *s, int start, int end)
+static char	*remplir_dest(char const *s, int start, int end, char **dest)
 {
 	char	*tab;
 	int		i;
 
 	tab = malloc(sizeof(char) * (end - start +1));
 	if (!tab)
-		return (NULL);
+		return (ft_error(dest));
 	i = 0;
 	while (start < end)
 	{
@@ -70,7 +84,7 @@ char	**ft_split(char const *s, char c)
 			start = i;
 			while (s[i] != c && s[i])
 				i++;
-			dest[j++] = remplir_dest(s, start, i);
+			dest[j++] = remplir_dest(s, start, i, dest);
 		}
 		i++;
 	}
@@ -89,7 +103,7 @@ int	main(void)
 	//__builtin_printf("%d\n", mot);
 	test = ft_split(s, ' ');
 	i = 0;
-	while (i < mot + 2)
+	while (i < mot + 1)
 	{
 		__builtin_printf("%s\n", test[i]);
 		i++;
